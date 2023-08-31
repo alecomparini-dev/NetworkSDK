@@ -11,7 +11,7 @@ let package = Package(
     ],
     
     products: [
-        .library(name: "NetworkSDK", targets: ["Network"] ),
+        .library(name: "Network", targets: ["Network"] ),
     ],
     
     dependencies: [

@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol HTTPGetClient {
+public protocol HTTPGetClient {
     var startTime: Date { get }
     func get(url: URL, parameters: Dictionary<String, String>) async throws -> ResponseDTO
 }

@@ -8,12 +8,12 @@
 import Foundation
 import Alamofire
 
-class AlamofireNetwork {
+public final class AlamofireNetwork {
 
     private let session: Session
-    let startTime = Date()
+    public let startTime = Date()
     
-    init(session: Session = .default) {
+    public init(session: Session = .default) {
         self.session = session
     }
     
@@ -23,7 +23,7 @@ class AlamofireNetwork {
 //  MARK: - EXTENSION - HTTPGetClient
 extension AlamofireNetwork: HTTPGetClient {
     
-    func get(url: URL, parameters: Dictionary<String,String>) async throws -> ResponseDTO {
+    public func get(url: URL, parameters: Dictionary<String,String>) async throws -> ResponseDTO {
         return try await withCheckedThrowingContinuation { continuation in
             session
                 .request(url, method: .get, parameters: parameters)

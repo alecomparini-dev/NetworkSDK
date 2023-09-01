@@ -11,7 +11,7 @@ let package = Package(
     ],
     
     products: [
-        .library(name: "Network", targets: ["Network"] ),
+//        .library(name: "NetworkSDK", targets: ["Main"] ),
     ],
     
     dependencies: [
@@ -19,8 +19,30 @@ let package = Package(
     ],
     
     targets: [
-        .target(name: "Network", dependencies: ["Alamofire"]),
+
+        .target(
+            name: "NetworkSession",
+            dependencies: [  ],
+            path: "Sources/3InterfaceAdapter/NetworkSession"
+        ),
+
+        .target(
+            name: "Interfaces",
+            dependencies: [  ],
+            path: "Sources/3InterfaceAdapter/Interfaces"
+        ),
         
-        .testTarget(name: "NetworkTests", dependencies: ["Network"]),
+        .target(
+            name: "Detail",
+            dependencies: ["Interfaces", "Alamofire"],
+            path: "Sources/Detail"
+        ),
+    
+        .executableTarget(
+            name: "Main",
+            dependencies: ["Interfaces"],
+            path: "Sources/Main"
+        ),
+        
     ]
 )

@@ -8,12 +8,12 @@
 import Foundation
 
 public struct ResponseDTO {
-    let data: Data?
-    let statusCode: Int
-    let headers: Dictionary<String, String>?
-    let responseTimeInMilliseconds: TimeInterval
+    public let data: Data?
+    public let statusCode: Int
+    public let headers: Dictionary<String, String>?
+    public let responseTimeInMilliseconds: TimeInterval
     
-    init(data: Data? = nil, statusCode: Int, headers: Dictionary<String, String>? = nil, responseTimeInMilliseconds: TimeInterval) {
+    public init(data: Data? = nil, statusCode: Int, headers: Dictionary<String, String>? = nil, responseTimeInMilliseconds: TimeInterval) {
         self.data = data
         self.statusCode = statusCode
         self.headers = headers

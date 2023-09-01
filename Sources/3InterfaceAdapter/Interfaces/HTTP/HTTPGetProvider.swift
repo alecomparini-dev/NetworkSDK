@@ -7,9 +7,8 @@
 
 import Foundation
 
-
-public protocol HTTPGetClient {
+public protocol HTTPGetProvider {
     var startTime: Date { get }
-    func get(url: URL, parameters: Dictionary<String, String>) async throws -> ResponseDTO
+    func get(endpoint: EndpointDTO) async throws -> ResponseDTO
 }
 

@@ -21,9 +21,24 @@ let package = Package(
     targets: [
 
         .target(
-            name: "NetworkSession",
-            dependencies: [  ],
-            path: "Sources/3InterfaceAdapter/NetworkSession"
+            name: "UseCases",
+            dependencies: [ ],
+            path: "Sources/2Application/UseCases"
+        ),
+
+
+        
+        
+        .target(
+            name: "UseCasesGateway",
+            dependencies: [ "UseCases" ],
+            path: "Sources/3InterfaceAdapter/UseCasesGateway"
+        ),
+
+        .target(
+            name: "Controllers",
+            dependencies: [ "UseCases", "Interfaces"],
+            path: "Sources/3InterfaceAdapter/Controllers"
         ),
 
         .target(
@@ -32,15 +47,24 @@ let package = Package(
             path: "Sources/3InterfaceAdapter/Interfaces"
         ),
         
+        
+        
+        
+        
+        
         .target(
             name: "Detail",
             dependencies: ["Interfaces", "Alamofire"],
             path: "Sources/Detail"
         ),
         
+        
+        
+        
+        
         .target(
             name: "NetworkSDKMain",
-            dependencies: ["Interfaces"],
+            dependencies: ["Interfaces", "Detail", "Controllers", "UseCasesGateway"],
             path: "Sources/NetworkSDKMain"
         ),
         

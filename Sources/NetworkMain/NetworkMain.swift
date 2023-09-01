@@ -3,9 +3,9 @@
 
 import Foundation
 
-class Shared {
+public class NetworkMain {
     
-    func get() -> Data {
+    public func get() -> Data {
         print("EXECUTOU O GET !!!!!!")
         return Data(count: 64654654)
     }

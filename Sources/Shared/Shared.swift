@@ -3,7 +3,7 @@
 
 import Foundation
 
-class Main {
+class Shared {
     
     func get() -> Data {
         print("EXECUTOU O GET !!!!!!")

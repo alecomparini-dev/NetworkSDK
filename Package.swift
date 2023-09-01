@@ -11,7 +11,7 @@ let package = Package(
     ],
     
     products: [
-//        .library(name: "NetworkSDK", targets: ["Main"] ),
+        .library(name: "NetworkSDK", targets: ["Shared"] ),
     ],
     
     dependencies: [
@@ -37,11 +37,11 @@ let package = Package(
             dependencies: ["Interfaces", "Alamofire"],
             path: "Sources/Detail"
         ),
-    
-        .executableTarget(
-            name: "Main",
+        
+        .target(
+            name: "Shared",
             dependencies: ["Interfaces"],
-            path: "Sources/Main"
+            path: "Sources/Shared"
         ),
         
     ]

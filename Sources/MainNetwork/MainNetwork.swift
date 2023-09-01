@@ -3,7 +3,9 @@
 
 import Foundation
 
-public class NetworkMain {
+public class MainNetwork {
+    
+    public init() {}
     
     public func get() -> Data {
         print("EXECUTOU O GET !!!!!!")

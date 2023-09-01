@@ -9,10 +9,10 @@ import Foundation
 import Interfaces
 import Alamofire
 
-public final class AlamofireNetwork {
-
-    private let session: Session
+public final class AlamofireProvider {
+    
     public let startTime = Date()
+    private let session: Session
     
     public init(session: Session = .default) {
         self.session = session
@@ -22,12 +22,13 @@ public final class AlamofireNetwork {
 
 
 //  MARK: - EXTENSION - HTTPGetClient
-extension AlamofireNetwork: HTTPGetClient {
+extension AlamofireProvider: HTTPGetProvider {
     
-    public func get(url: URL, parameters: Dictionary<String,String>) async throws -> ResponseDTO {
+    public func get(endpoint: EndpointDTO) async throws -> ResponseDTO {
+        
         return try await withCheckedThrowingContinuation { continuation in
             session
-                .request(url, method: .get, parameters: parameters)
+                .request(endpoint.url, method: .get, parameters: endpoint.queryParameters)
                 .responseData { [weak self] response in
                     guard let self else {return}
                     switch(response.result) {

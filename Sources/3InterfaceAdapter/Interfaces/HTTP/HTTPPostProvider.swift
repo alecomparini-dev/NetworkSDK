@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol HTTPPost {
+protocol HTTPPostProvider {
     var startTime: Date { get }
     func post(url: URL, parameters: Dictionary<String, String>) async throws -> ResponseDTO
 }

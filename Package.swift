@@ -36,10 +36,17 @@ let package = Package(
         ),
 
         .target(
+            name: "Controllers",
+            dependencies: [ "UseCases", "Interfaces"],
+            path: "Sources/3InterfaceAdapter/Controllers"
+        ),
+
+        .target(
             name: "Interfaces",
             dependencies: [  ],
             path: "Sources/3InterfaceAdapter/Interfaces"
         ),
+        
         
         
         
@@ -57,7 +64,7 @@ let package = Package(
         
         .target(
             name: "NetworkSDKMain",
-            dependencies: ["Interfaces", "Detail"],
+            dependencies: ["Interfaces", "Detail", "Controllers", "UseCasesGateway"],
             path: "Sources/NetworkSDKMain"
         ),
         

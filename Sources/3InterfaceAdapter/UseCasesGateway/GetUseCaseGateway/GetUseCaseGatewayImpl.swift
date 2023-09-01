@@ -5,15 +5,15 @@ import Foundation
 import UseCases
 import Interfaces
 
-final class GetUseCaseGatewayImpl: GetUseCaseGateway {
+final public class GetUseCaseGatewayImpl: GetUseCaseGateway {
 
     private let provider: HTTPGetProvider
     
-    init(provider: HTTPGetProvider) {
+    public init(provider: HTTPGetProvider) {
         self.provider = provider
     }
     
-    func get() async throws -> Data {
+    public func get() async throws -> Data {
         
         
         return Data()

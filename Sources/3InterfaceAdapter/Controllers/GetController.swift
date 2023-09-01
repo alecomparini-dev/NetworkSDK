@@ -7,6 +7,6 @@
 
 import Foundation
 
-public protocol GetUseCase {
-    func get() async throws -> Data
+public protocol GetController {
+    func get() async throws -> Data 
 }

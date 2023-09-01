@@ -5,6 +5,8 @@ import Foundation
 
 public class NetworkMain {
     
+    public init() {}
+    
     public func get() -> Data {
         print("EXECUTOU O GET !!!!!!")
         return Data(count: 64654654)

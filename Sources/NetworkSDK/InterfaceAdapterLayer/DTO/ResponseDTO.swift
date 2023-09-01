@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct ResponseDTO {
+struct ResponseDTO {
     let data: Data?
     let statusCode: Int
     let headers: Dictionary<String, String>?

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Interfaces
 import Alamofire
 
 public final class AlamofireNetwork {

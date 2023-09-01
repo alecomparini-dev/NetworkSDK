@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Interfaces
 
 
 public struct ResponseDTOFactory {

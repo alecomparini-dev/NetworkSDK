@@ -3,11 +3,12 @@
 
 import Foundation
 
-public class MainNetwork {
+public class NetworkSDKMain {
     
     public init() {}
     
-    public func get() -> Data {
+    public func get() async throws -> Data {
+        
         print("EXECUTOU O GET !!!!!!")
         return Data(count: 64654654)
     }

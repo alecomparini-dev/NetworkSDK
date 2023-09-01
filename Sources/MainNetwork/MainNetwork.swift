@@ -3,7 +3,7 @@
 
 import Foundation
 
-public class NetworkMain {
+public class MainNetwork {
     
     public init() {}
     

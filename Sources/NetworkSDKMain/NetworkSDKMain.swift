@@ -17,8 +17,8 @@ public class NetworkSDKMain {
     private let queryParameters: Dictionary<String, String>
     
     public init(url: URL,
-                _ headers: Dictionary<String, String> = [:],
-                _ queryParameters: Dictionary<String, String> = [:]) {
+                headers: Dictionary<String, String> = [:],
+                queryParameters: Dictionary<String, String> = [:]) {
         self.url = url
         self.headers = headers
         self.queryParameters = queryParameters

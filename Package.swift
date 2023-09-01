@@ -51,7 +51,6 @@ let package = Package(
         
         
         
-        
         .target(
             name: "Detail",
             dependencies: ["Interfaces", "Alamofire"],

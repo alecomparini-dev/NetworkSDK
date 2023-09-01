@@ -8,7 +8,7 @@
 import Foundation
 import Interfaces
 
-class URLSessionNetwork {
+class URLSessionProvider {
     
     private let session: URLSession
     let startTime = Date()
@@ -21,7 +21,7 @@ class URLSessionNetwork {
 
 
 //  MARK: - EXTENSION - HTTPGetClient
-extension URLSessionNetwork: HTTPGetClient {
+extension URLSessionProvider: HTTPGetClient {
     func get(url: URL, parameters: Dictionary<String,String>) async throws -> ResponseDTO {
         
         // TODO: - Extract the code to its own file

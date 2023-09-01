@@ -3,6 +3,8 @@
 
 import Foundation
 
+import Interfaces
+
 public class NetworkSDKMain {
     
     public init() {}

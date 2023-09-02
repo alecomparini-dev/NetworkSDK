@@ -33,7 +33,7 @@ public class NetworkSDKMain {
         
         let data = try await getController.get()
         
-        print("PUTA QUE PARIUUU", data)
+        print("FUNFOUUUUUUUUUU", data)
         
         return data
     }

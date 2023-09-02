@@ -9,7 +9,7 @@ import Foundation
 import Interfaces
 import Alamofire
 
-public final class AlamofireProvider {
+final public class AlamofireProvider {
     
     public let startTime = Date()
     private let session: Session

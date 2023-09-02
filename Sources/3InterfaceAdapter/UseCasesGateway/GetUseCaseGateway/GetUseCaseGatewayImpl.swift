@@ -2,8 +2,8 @@
 //
 
 import Foundation
-import UseCases
-import Interfaces
+import NetworkUseCases
+import NetworkInterfaces
 
 final public class GetUseCaseGatewayImpl: GetUseCaseGateway {
 

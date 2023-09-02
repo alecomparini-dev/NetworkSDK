@@ -11,7 +11,7 @@ let package = Package(
     ],
     
     products: [
-        .library(name: "NetworkSDK", targets: ["NetworkSDKMain"] ),
+        .library(name: "NetworkSDK", targets: ["NetworkSDK"] ),
     ],
     
     dependencies: [
@@ -21,42 +21,55 @@ let package = Package(
     targets: [
 
         .target(
-            name: "UseCases",
+            name: "NetworkUseCases",
             dependencies: [ ],
             path: "Sources/2Application/UseCases"
         ),
 
 
         .target(
-            name: "UseCasesGateway",
-            dependencies: [ "UseCases" ],
+            name: "NetworkUseCasesGateway",
+            dependencies: [
+                "NetworkUseCases"
+            ],
             path: "Sources/3InterfaceAdapter/UseCasesGateway"
         ),
 
         .target(
-            name: "Controllers",
-            dependencies: [ "UseCases", "Interfaces"],
+            name: "NetworkControllers",
+            dependencies: [
+                "NetworkUseCases",
+                "NetworkInterfaces"
+            ],
             path: "Sources/3InterfaceAdapter/Controllers"
         ),
 
         .target(
-            name: "Interfaces",
+            name: "NetworkInterfaces",
             dependencies: [  ],
             path: "Sources/3InterfaceAdapter/Interfaces"
         ),
         
         
         .target(
-            name: "Detail",
-            dependencies: ["Interfaces", "Alamofire"],
+            name: "NetworkDetail",
+            dependencies: [
+                "NetworkInterfaces",
+                "Alamofire"
+            ],
             path: "Sources/Detail"
         ),
         
         
         
         .target(
-            name: "NetworkSDKMain",
-            dependencies: ["Interfaces", "Detail", "Controllers", "UseCasesGateway"],
+            name: "NetworkSDK",
+            dependencies: [
+                "NetworkInterfaces",
+                "NetworkDetail",
+                "NetworkControllers",
+                "NetworkUseCasesGateway"
+            ],
             path: "Sources/NetworkSDKMain"
         ),
         

@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import UseCases
+import NetworkUseCases
 
 final public class GetControllerImpl: GetController {
     

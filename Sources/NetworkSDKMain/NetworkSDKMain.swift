@@ -2,11 +2,11 @@
 //
 
 import Foundation
-import Detail
-import Interfaces
-import Controllers
-import UseCases
-import UseCasesGateway
+import NetworkDetail
+import NetworkInterfaces
+import NetworkControllers
+import NetworkUseCases
+import NetworkUseCasesGateway
 
 public class NetworkSDKMain {
     

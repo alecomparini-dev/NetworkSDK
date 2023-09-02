@@ -27,8 +27,6 @@ let package = Package(
         ),
 
 
-        
-        
         .target(
             name: "UseCasesGateway",
             dependencies: [ "UseCases" ],
@@ -48,16 +46,11 @@ let package = Package(
         ),
         
         
-        
-        
-        
         .target(
             name: "Detail",
             dependencies: ["Interfaces", "Alamofire"],
             path: "Sources/Detail"
         ),
-        
-        
         
         
         

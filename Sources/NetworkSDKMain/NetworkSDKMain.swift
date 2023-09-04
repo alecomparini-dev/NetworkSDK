@@ -29,8 +29,8 @@ public class NetworkSDK {
         let httpGetProvider = provider
         let getUseCaseGateway = GetUseCaseGatewayImpl(provider: httpGetProvider)
         let getUseCase = GetUseCaseImpl(getUseCaseGateway: getUseCaseGateway)
-        let getController = GetControllerImpl(getUseCase: getUseCase)
         
+        let getController = GetControllerImpl(getUseCase: getUseCase)
         let data = try await getController.get()
         
         print("FUNFOUUUUUUUUUU", data)

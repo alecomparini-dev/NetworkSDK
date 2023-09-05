@@ -14,11 +14,7 @@ final public class GetUseCaseImpl: GetUseCase  {
     
     
     public func get(_ input: GetUseCaseDTO.Input) async throws -> Data {
-        
-        let data = try await getUseCaseGateway.get(input)
-        
-        return Data()
-        
+        return try await getUseCaseGateway.get(input)
     }
     
     

@@ -12,28 +12,23 @@ public class NetworkSDK {
     
     private let provider = AlamofireProvider()
     
-    private let url: URL
-    private let headers: Dictionary<String, String>
-    private let queryParameters: Dictionary<String, String>
+    private let endpoint: EndpointDTO
     
-    public init(url: URL,
-                headers: Dictionary<String, String> = [:],
-                queryParameters: Dictionary<String, String> = [:]) {
-        self.url = url
-        self.headers = headers
-        self.queryParameters = queryParameters
+    public init(endpoint: EndpointDTO) {
+        self.endpoint = endpoint
     }
     
     public func get() async throws -> Data {
         
         let httpGetProvider = provider
+        
         let getUseCaseGateway = GetUseCaseGatewayImpl(provider: httpGetProvider)
+        
         let getUseCase = GetUseCaseImpl(getUseCaseGateway: getUseCaseGateway)
         
         let getController = GetControllerImpl(getUseCase: getUseCase)
-        let data = try await getController.get()
         
-        print("FUNFOUUUUUUUUUU", data)
+        let data = try await getController.get(endpoint)
         
         return data
     }

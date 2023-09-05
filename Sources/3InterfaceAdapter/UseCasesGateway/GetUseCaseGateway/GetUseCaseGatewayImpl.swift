@@ -13,11 +13,15 @@ final public class GetUseCaseGatewayImpl: GetUseCaseGateway {
         self.provider = provider
     }
     
-    public func get() async throws -> Data {
+    public func get(_ input: GetUseCaseDTO.Input) async throws -> Data {
         
+        let endpoint = EndpointDTO(url: input.url,
+                                   headers: input.headers,
+                                   queryParameters: input.queryParameters)
         
-        return Data()
+        let response: ResponseDTO = try await provider.get(endpoint: endpoint)
+        
+        return response.data ?? Data()
     }
-    
     
 }

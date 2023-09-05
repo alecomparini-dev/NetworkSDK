@@ -8,5 +8,5 @@
 import Foundation
 
 public protocol GetUseCase {
-    func get() async throws -> Data
+    func get(_ input: GetUseCaseDTO.Input) async throws -> Data
 }

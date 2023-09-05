@@ -8,7 +8,9 @@
 import Foundation
 
 public protocol HTTPGetProvider {
+    
     var startTime: Date { get }
+    
     func get(endpoint: EndpointDTO) async throws -> ResponseDTO
 }
 

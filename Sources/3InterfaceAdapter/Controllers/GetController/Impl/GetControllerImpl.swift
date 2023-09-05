@@ -7,6 +7,7 @@
 
 import Foundation
 import NetworkUseCases
+import NetworkInterfaces
 
 final public class GetControllerImpl: GetController {
     
@@ -16,11 +17,16 @@ final public class GetControllerImpl: GetController {
         self.getUseCase = getUseCase
     }
     
-    public func get() async throws -> Data {
+    public func get(_ endpoint: EndpointDTO) async throws -> Data {
         
+        let input = GetUseCaseDTO.Input(url: endpoint.url,
+                                        headers: endpoint.headers,
+                                        queryParameters: endpoint.queryParameters)
         
-        return Data()
+        let data = try await getUseCase.get(input)
+        
+        return data
     }
-
+    
     
 }

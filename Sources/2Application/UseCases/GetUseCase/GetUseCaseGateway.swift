@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 public protocol GetUseCaseGateway {
-    func get() async throws -> Data
+    func get(_ input: GetUseCaseDTO.Input) async throws -> Data
 }

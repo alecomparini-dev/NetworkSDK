@@ -5,17 +5,22 @@
 import Foundation
 
 final public class GetUseCaseImpl: GetUseCase  {
-    
+
     private let getUseCaseGateway: GetUseCaseGateway
-    
-    
+        
     public init(getUseCaseGateway: GetUseCaseGateway) {
         self.getUseCaseGateway = getUseCaseGateway
     }
     
-    public func get() async throws -> Data {
-        return try await getUseCaseGateway.get()
+    
+    public func get(_ input: GetUseCaseDTO.Input) async throws -> Data {
+        
+        let data = try await getUseCaseGateway.get(input)
+        
+        return Data()
+        
     }
+    
     
     
 }

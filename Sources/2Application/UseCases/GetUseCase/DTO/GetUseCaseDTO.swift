@@ -7,12 +7,19 @@
 
 import Foundation
 
-enum GetUseCaseDTO {
+public enum GetUseCaseDTO {
     
-    struct Input {
-        let url: URL
-        let headers: Dictionary<String, String>?
-        let queryParameters: Dictionary<String, String>?
+    public struct Input {
+        public let url: URL
+        public let headers: [String: String]?
+        public let queryParameters: [String: String]?
+        
+        public init(url: URL, headers: [String : String]?, queryParameters: [String : String]?) {
+            self.url = url
+            self.headers = headers
+            self.queryParameters = queryParameters
+        }
+        
     }
     
 }

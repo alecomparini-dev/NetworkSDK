@@ -1,11 +1,8 @@
-//
-//  ResponseDTO.swift
-//  currency-clean-architecture-mvp
-//
 //  Created by Alessandro Comparini on 29/08/23.
 //
 
 import Foundation
+
 
 public struct ResponseDTO {
     public let data: Data?

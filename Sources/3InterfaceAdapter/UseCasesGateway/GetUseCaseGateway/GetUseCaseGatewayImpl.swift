@@ -5,6 +5,7 @@ import Foundation
 import NetworkUseCases
 import NetworkInterfaces
 
+
 final public class GetUseCaseGatewayImpl: GetUseCaseGateway {
 
     private let provider: HTTPGetProvider

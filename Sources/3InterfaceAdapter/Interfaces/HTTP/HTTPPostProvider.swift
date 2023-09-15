@@ -1,11 +1,8 @@
-//
-//  HTTPPost.swift
-//  currency-conversion-mvp
-//
 //  Created by Alessandro Comparini on 19/08/23.
 //
 
 import Foundation
+
 
 protocol HTTPPostProvider {
     var startTime: Date { get }

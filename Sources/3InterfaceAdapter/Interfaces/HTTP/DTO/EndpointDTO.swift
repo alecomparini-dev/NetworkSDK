@@ -3,6 +3,7 @@
 
 import Foundation
 
+
 public struct EndpointDTO {
     public let url: URL
     public let headers: [String: String]?

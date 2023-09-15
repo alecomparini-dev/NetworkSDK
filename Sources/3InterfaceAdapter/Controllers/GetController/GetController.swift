@@ -4,7 +4,7 @@
 import Foundation
 import NetworkInterfaces
 
+
 public protocol GetController {
-    func get(_ endpoint: EndpointDTO) async throws -> Data
-    
+    func get(_ endpoint: EndpointDTO) async throws -> Data   
 }

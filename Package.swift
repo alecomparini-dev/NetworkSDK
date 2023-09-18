@@ -67,7 +67,6 @@ let package = Package(
             dependencies: [
                 "NetworkInterfaces",
                 "NetworkDetail",
-                "NetworkControllers",
                 "NetworkUseCasesGateway"
             ],
             path: "Sources/NetworkSDKMain"

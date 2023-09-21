@@ -11,7 +11,7 @@ let package = Package(
     ],
     
     products: [
-        .library(name: "NetworkSDK", targets: ["NetworkSDK"] ),
+        .library(name: "NetworkSDKMain", targets: ["NetworkSDKMain"] ),
     ],
     
     dependencies: [
@@ -63,7 +63,7 @@ let package = Package(
         
         
         .target(
-            name: "NetworkSDK",
+            name: "NetworkSDKMain",
             dependencies: [
                 "NetworkInterfaces",
                 "NetworkDetail",

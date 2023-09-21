@@ -14,11 +14,11 @@ final public class GetControllerImpl: GetController {
         self.getUseCase = getUseCase
     }
     
-    public func get(_ endpoint: EndpointDTO) async throws -> Data {
+    public func get(_ input: EndpointDTO) async throws -> Data {
         
-        let input = GetUseCaseDTO.Input(url: endpoint.url,
-                                        headers: endpoint.headers,
-                                        queryParameters: endpoint.queryParameters)
+        let input = GetUseCaseDTO.Input(url: input.url,
+                                        headers: input.headers,
+                                        queryParameters: input.queryParameters)
         
         let data = try await getUseCase.get(input)
         

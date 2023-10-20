@@ -4,8 +4,8 @@
 import Foundation
 
 
-protocol HTTPPostProvider {
+public protocol HTTPPostProvider {
     var startTime: Date { get }
-    func post(url: URL, parameters: Dictionary<String, String>) async throws -> ResponseDTO
+    func post(endpoint: EndpointDTO, bodyJson: [String: Any]) async throws -> ResponseDTO
 }
 

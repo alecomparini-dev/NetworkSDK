@@ -11,7 +11,7 @@ import NetworkUseCasesGateway
 
 public class NetworkSDK {
     
-    private let provider = AlamofireProvider()
+    private let provider = URLSessionProvider()
     
     private let endpoint: EndpointDTO
     
@@ -33,5 +33,21 @@ public class NetworkSDK {
         
         return data
     }
+
     
+    public func post(bodyJson: [String: Any]) async throws -> Data {
+        
+        let httpPostProvider = provider
+        
+        let postUseCaseGateway = PostUseCaseGatewayImpl(provider: httpPostProvider)
+        
+        let postUseCase = PostUseCaseImpl(postUseCaseGateway: postUseCaseGateway)
+        
+        let postController = PostControllerImpl(postUseCase: postUseCase)
+        
+        let data = try await postController.post(endpoint, bodyJson: bodyJson)
+        
+        return data
+    }
+
 }

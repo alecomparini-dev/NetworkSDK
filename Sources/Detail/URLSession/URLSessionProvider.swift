@@ -6,12 +6,12 @@ import Foundation
 import NetworkInterfaces
 
 
-class URLSessionProvider {
+final public class URLSessionProvider {
     
+    public let startTime = Date()
     private let session: URLSession
-    let startTime = Date()
     
-    init(session: URLSession = .shared) {
+    public init(session: URLSession = .shared) {
         self.session = session
     }
     
@@ -36,12 +36,11 @@ class URLSessionProvider {
 //  MARK: - EXTENSION - HTTPGetClient
 extension URLSessionProvider: HTTPGetProvider {
     
-    func get(endpoint: EndpointDTO) async throws -> ResponseDTO {
+    public func get(endpoint: EndpointDTO) async throws -> ResponseDTO {
         
         let components: URLComponents = makeURLComponents(endpoint)
         
         var request = URLRequest(url: components.url!)
-        
         request.method = .get
 
         let (data, response) = try await session.data(for: request)
@@ -50,5 +49,26 @@ extension URLSessionProvider: HTTPGetProvider {
         
     }
     
+    
+}
+
+
+//  MARK: - EXTENSION - HTTPGetClient
+extension URLSessionProvider: HTTPPostProvider {
+    
+    public func post(endpoint: EndpointDTO, bodyJson: [String: Any]) async throws -> ResponseDTO {
+        
+        let components: URLComponents = makeURLComponents(endpoint)
+        
+        let jsonData = try JSONSerialization.data(withJSONObject: bodyJson)
+        
+        var request = URLRequest(url: components.url!)
+        request.method = .post
+        request.httpBody = jsonData
+
+        let (data, response) = try await session.data(for: request)
+        
+        return ResponseDTOFactory.makeResponseDTO(data: data, response as? HTTPURLResponse, startTime)
+    }
     
 }

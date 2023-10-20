@@ -11,7 +11,6 @@ final public class GetUseCaseImpl: GetUseCase  {
         self.getUseCaseGateway = getUseCaseGateway
     }
     
-    
     public func get(_ input: GetUseCaseDTO.Input) async throws -> Data {
         return try await getUseCaseGateway.get(input)
     }

@@ -64,6 +64,7 @@ extension URLSessionProvider: HTTPPostProvider {
         
         var request = URLRequest(url: components.url!)
         request.method = .post
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = jsonData
 
         let (data, response) = try await session.data(for: request)

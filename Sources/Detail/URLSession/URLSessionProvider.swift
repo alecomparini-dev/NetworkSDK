@@ -42,7 +42,7 @@ extension URLSessionProvider: HTTPGetProvider {
         
         var request = URLRequest(url: components.url!)
         request.method = .get
-        request.timeoutInterval = 10
+        request.timeoutInterval = 3
 
         let (data, response) = try await session.data(for: request)
                 

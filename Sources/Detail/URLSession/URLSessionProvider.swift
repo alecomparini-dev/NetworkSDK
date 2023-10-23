@@ -66,6 +66,7 @@ extension URLSessionProvider: HTTPPostProvider {
         request.method = .post
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = jsonData
+        request.timeoutInterval = TimeInterval(10)
 
         let (data, response) = try await session.data(for: request)
         

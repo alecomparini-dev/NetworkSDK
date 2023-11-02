@@ -9,12 +9,12 @@ public enum PostUseCaseDTO {
         public let url: URL
         public let headers: [String: String]?
         public let queryParameters: [String: String]?
-        public let bodyJson: [String: Any]?
+        public let bodyJson: Data?
         
         public init(url: URL, 
                     headers: [String : String]?,
                     queryParameters: [String : String]?,
-                    bodyJson: [String : Any]?) {
+                    bodyJson: Data?) {
             self.url = url
             self.headers = headers
             self.queryParameters = queryParameters

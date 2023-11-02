@@ -15,7 +15,7 @@ final public class PostControllerImpl: PostController {
         self.postUseCase = postUseCase
     }
     
-    public func post(_ input: EndpointDTO, bodyJson: [String : Any]) async throws -> Data {
+    public func post(_ input: EndpointDTO, bodyJson: Data?) async throws -> Data {
         
         let input = PostUseCaseDTO.Input(url: input.url,
                                          headers: input.headers,

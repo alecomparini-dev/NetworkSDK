@@ -35,7 +35,7 @@ public class NetworkSDK {
     }
 
     
-    public func post(bodyJson: [String: Any]) async throws -> Data {
+    public func post(bodyJson: Data?) async throws -> Data {
         
         let httpPostProvider = provider
         

@@ -7,5 +7,5 @@ import NetworkInterfaces
 
 
 public protocol PostController {
-    func post(_ endpoint: EndpointDTO, bodyJson: [String: Any]) async throws -> Data
+    func post(_ endpoint: EndpointDTO, bodyJson: Data?) async throws -> Data
 }

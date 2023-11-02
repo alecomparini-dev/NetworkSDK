@@ -57,17 +57,19 @@ extension URLSessionProvider: HTTPGetProvider {
 //  MARK: - EXTENSION - HTTPGetClient
 extension URLSessionProvider: HTTPPostProvider {
     
-    public func post(endpoint: EndpointDTO, bodyJson: [String: Any]) async throws -> ResponseDTO {
+    public func post(endpoint: EndpointDTO, bodyJson: Data?) async throws -> ResponseDTO {
         
         let components: URLComponents = makeURLComponents(endpoint)
         
-        let jsonData = try JSONSerialization.data(withJSONObject: bodyJson)
+//        let jsonData = try JSONSerialization.data(withJSONObject: bodyJson)
         
         var request = URLRequest(url: components.url!)
         request.method = .post
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.httpBody = jsonData
-
+        if let bodyJson {
+            request.httpBody = bodyJson
+        }
+        
         let (data, response) = try await session.data(for: request)
         
         return ResponseDTOFactory.makeResponseDTO(data: data, response as? HTTPURLResponse, startTime)

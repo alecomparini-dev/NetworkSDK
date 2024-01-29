@@ -7,7 +7,7 @@ import NetworkInterfaces
 
 public struct ResponseDTOFactory {
 
-    static func makeResponseDTO(data: Data, _ response: HTTPURLResponse?, _ startTime: Date) -> ResponseDTO {
+    public static func makeResponseDTO(data: Data, _ response: HTTPURLResponse?, _ startTime: Date) -> ResponseDTO {
         let responseTimeInMilliseconds = Date().timeIntervalSince(startTime) * 1000
         let headersDictionary: [String: String] = getResponseAllHeaderFields(response)
         return ResponseDTO(data: data,

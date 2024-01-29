@@ -6,6 +6,6 @@ import Foundation
 
 public protocol HTTPPostProvider {
     var startTime: Date { get }
-    func post(endpoint: EndpointDTO, bodyJson: Data?) async throws -> ResponseDTO
+    func post(endpoint: EndpointDTO, bodyDataJSON: Data?) async throws -> ResponseDTO
 }
 

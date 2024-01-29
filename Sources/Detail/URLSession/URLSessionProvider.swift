@@ -41,6 +41,7 @@ extension URLSessionProvider: HTTPGetProvider {
         let components: URLComponents = makeURLComponents(endpoint)
         
         var request = URLRequest(url: components.url!)
+        
         request.method = .get
 //        request.timeoutInterval = 25
 
@@ -57,17 +58,18 @@ extension URLSessionProvider: HTTPGetProvider {
 //  MARK: - EXTENSION - HTTPGetClient
 extension URLSessionProvider: HTTPPostProvider {
     
-    public func post(endpoint: EndpointDTO, bodyJson: Data?) async throws -> ResponseDTO {
+    public func post(endpoint: EndpointDTO, bodyDataJSON: Data?) async throws -> ResponseDTO {
         
         let components: URLComponents = makeURLComponents(endpoint)
-        
-//        let jsonData = try JSONSerialization.data(withJSONObject: bodyJson)
-        
+                
         var request = URLRequest(url: components.url!)
+        
         request.method = .post
+        
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        if let bodyJson {
-            request.httpBody = bodyJson
+        
+        if let bodyDataJSON {
+            request.httpBody = bodyDataJSON
         }
         
         let (data, response) = try await session.data(for: request)

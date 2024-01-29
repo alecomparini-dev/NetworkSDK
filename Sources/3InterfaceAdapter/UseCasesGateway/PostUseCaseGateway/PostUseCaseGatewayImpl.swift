@@ -19,7 +19,7 @@ final public class PostUseCaseGatewayImpl: PostUseCaseGateway {
                                    headers: input.headers,
                                    queryParameters: input.queryParameters)
         
-        let response: ResponseDTO = try await provider.post(endpoint: endpoint, bodyJson: input.bodyJson )
+        let response: ResponseDTO = try await provider.post(endpoint: endpoint, bodyDataJSON: input.bodyJson )
         
         return response.data ?? Data()
     }

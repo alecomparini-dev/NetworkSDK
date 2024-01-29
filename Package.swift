@@ -25,8 +25,7 @@ let package = Package(
             dependencies: [ ],
             path: "Sources/2Application/UseCases"
         ),
-
-
+        
         .target(
             name: "NetworkUseCasesGateway",
             dependencies: [
@@ -50,7 +49,6 @@ let package = Package(
             path: "Sources/3InterfaceAdapter/Interfaces"
         ),
         
-        
         .target(
             name: "NetworkDetail",
             dependencies: [
@@ -59,8 +57,6 @@ let package = Package(
             ],
             path: "Sources/Detail"
         ),
-        
-        
         
         .target(
             name: "NetworkSDKMain",
@@ -72,6 +68,27 @@ let package = Package(
             ],
             path: "Sources/NetworkSDKMain"
         ),
+        
+        
+        
+//  MARK: - TESTE AREA
+        
+        .target(
+            name: "Handler",
+            dependencies: [ ],
+            path: "Tests/1Handler"
+        ),
+        
+        .testTarget(
+            name: "URLSession",
+            dependencies: [
+                "Handler",
+                "NetworkDetail",
+                "NetworkInterfaces"
+            ],
+            path: "Tests/Detail/URLSession"
+        ),
+        
         
     ]
 )

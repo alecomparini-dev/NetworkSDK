@@ -1,7 +1,7 @@
-# DataStorageSDK
+# NetworkSDK
 
 - Responsável pela camada de Acessos Remotos.
-- Adaptado para trabalhar com diversos frameworks de chamadas de API.
+- Adaptado para trabalhar com diversos frameworks de chamadas à APIs.
 
   
 ### Alguns database que já estão sendo utilizados em meus Projetos:
